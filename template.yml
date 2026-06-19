@@ -24,8 +24,6 @@ Resources:
       MemorySize: 512
       Timeout: 30
       AutoPublishAlias: live
-    Metadata:
-      BuildMethod: makefile
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ItemsTable
@@ -35,6 +33,8 @@ Resources:
           Properties:
             Path: /{proxy+}
             Method: ANY
+    Metadata:
+      BuildMethod: makefile
 
 Outputs:
   ApiUrl:
