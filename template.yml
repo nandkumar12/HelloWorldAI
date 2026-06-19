@@ -20,9 +20,12 @@ Resources:
     Properties:
       Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
       Runtime: java21
-      CodeUri: ./target/HelloWorldAI-1.0-SNAPSHOT-aws.jar
+      CodeUri: .
       MemorySize: 512
       Timeout: 30
+      AutoPublishAlias: live
+    Metadata:
+      BuildMethod: makefile
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref ItemsTable
